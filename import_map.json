@@ -1,0 +1,7 @@
+{
+  "imports": {
+    "oak": "https://deno.land/x/oak@v11.1.0/mod.ts",
+    "leancloud": "https://npm.elemecdn.com/leancloud-storage/dist/av-min.js",
+    "oakCors": "https://deno.land/x/cors/mod.ts"
+  }
+}

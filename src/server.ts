@@ -1,12 +1,20 @@
-import { Application } from "https://deno.land/x/oak@v11.1.0/mod.ts"
-import config from "../config.ts"
+import { Application } from "oak";
+import { oakCors } from "https://deno.land/x/cors@v1.2.2/mod.ts";
+import logger from "https://deno.land/x/oak_logger@1.0.0/mod.ts";
+import router from "./router.ts";
 
-const app = new Application
+const app = new Application();
 
-app.use((ctx) => {
-    ctx.response.body = config.leancloud.leanAppId
-})
+app.use(oakCors());
 
-app.listen({port: 8080})
+app.use(router.routes());
 
-console.log("QuLinks is running at http://localhost:8080")
+app.use(router.allowedMethods());
+
+app.use(logger.logger);
+
+app.use(logger.responseTime);
+
+app.listen({ port: 8080 });
+
+console.info("QuLinks Server is running at http://localhost:8080");

@@ -4,13 +4,15 @@
     "start": "deno run -A --unstable src/server.ts",
     "start-watch": "deno run -A --watch --unstable src/server.ts"
   },
+  "importMap": "import_map.json",
   "lint": {
     "files": {
       "include": [
         "./src/",
         "./types/",
         "./config.ts",
-        "./deno.jsonc"
+        "./deno.jsonc",
+        "./import_map.json"
       ]
     },
     "rules": {
@@ -25,7 +27,8 @@
         "./src/",
         "./types/",
         "./config.ts",
-        "./deno.jsonc"
+        "./deno.jsonc",
+        "./import_map.json"
       ]
     },
     "options": {
